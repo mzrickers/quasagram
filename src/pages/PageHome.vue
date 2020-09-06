@@ -1,39 +1,62 @@
 <template>
   <q-page class="constrain q-pa-md">
-    <q-card
-      v-for="post in posts"
-      :key="post.id"
-      class="card-post q-mb-md"
-      bordered
-      flat
-    >
-      <q-item>
-        <q-item-section avatar>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-          </q-avatar>
-        </q-item-section>
+    <div class="row q-col-gutter-lg">
+      <div class="col-12 col-sm-8">
+        <q-card
+          v-for="post in posts"
+          :key="post.id"
+          class="card-post q-mb-md"
+          bordered
+          flat
+        >
+          <q-item>
+            <q-item-section avatar>
+              <q-avatar>
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              </q-avatar>
+            </q-item-section>
 
-        <q-item-section>
-          <q-item-label class="text-bold">zach__rickers</q-item-label>
-          <q-item-label caption>
-            {{ post.location }}
-          </q-item-label>
-        </q-item-section>
-      </q-item>
+            <q-item-section>
+              <q-item-label class="text-bold">zach__rickers</q-item-label>
+              <q-item-label caption>
+                {{ post.location }}
+              </q-item-label>
+            </q-item-section>
+          </q-item>
 
-      <q-separator />
-      <img class="top-image" :src="post.imageUrl">
-      <q-card-section>
-        <div >{{ post.caption }}</div>
-        <div class="text-caption text-grey">{{ post.date}}</div>
-      </q-card-section>
+          <q-separator />
+          <img class="top-image" :src="post.imageUrl">
+          <q-card-section>
+            <div >{{ post.caption }}</div>
+            <div class="text-caption text-grey">{{ post.date | niceDate }}</div>
+          </q-card-section>
 
-    </q-card>
+        </q-card>
+      </div>
+      <div class="col-4 large-screen-only">
+        <q-item class="fixed">
+            <q-item-section avatar>
+              <q-avatar size="48px">
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label class="text-bold">zach__rickers</q-item-label>
+              <q-item-label caption>
+                Zach Rickers
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+      </div>
+    </div>
+    
   </q-page>
 </template>
 
 <script>
+import { date } from 'quasar'
+
 export default {
   name: 'PageHome',
   data() {
@@ -68,6 +91,11 @@ export default {
           date: 1599351929652
         },
       ]
+    }
+  },
+  filters: {
+    niceDate(value) {
+      return date.formatDate(value, 'MMMM D h:mmA')
     }
   }
 }
