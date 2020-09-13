@@ -43,7 +43,12 @@ module.exports = function (/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      env: {
+        API: 'http://localhost:3000' //local development
+        // API: 'https://quasagram-pwa-backend.herokuapp.com' //live production
+      },
       vueRouterMode: 'hash', // available values: 'hash', 'history'
+      
 
       // transpile: false,
 

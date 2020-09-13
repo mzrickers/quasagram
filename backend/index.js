@@ -2,8 +2,8 @@
   dependencies
 */
 
-const express = require('express')
-const admin = require('firebase-admin');
+  const express = require('express')
+  const admin = require('firebase-admin');
 
 /*
   config - express
@@ -16,13 +16,13 @@ const admin = require('firebase-admin');
   config - firebase
 */
 
-const serviceAccount = require('./serviceAccountKey.json');
+  const serviceAccount = require('./serviceAccountKey.json');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
 
-const db = admin.firestore();
+  const db = admin.firestore();
 
 /*
   endpoint - posts
@@ -38,6 +38,15 @@ const db = admin.firestore();
       })
       response.send(posts)
     });
+  })
+
+/*
+  endpoint - createPosts
+*/
+
+  app.post('/createPosts', (request, response) => {
+    response.set('Access-Control-Allow-Origin', '*')
+    response.send(request.headers)
   })
 
 /*
