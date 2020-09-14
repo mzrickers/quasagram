@@ -49,10 +49,10 @@
   })
 
 /*
-  endpoint - createPosts
+  endpoint - createPost
 */
 
-  app.post('/createPosts', (request, response) => {
+  app.post('/createPost', (request, response) => {
     response.set('Access-Control-Allow-Origin', '*')
 
     let uuid = UUID()
