@@ -114,13 +114,13 @@ module.exports = function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: `Quasagram`,
+        name: `Quasagram - Share Your Experiences`,
         short_name: `Quasagram`,
-        description: `A Quasar Framework app`,
+        description: `A Simple Instagram Clone - Made with Quasar`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
-        theme_color: '#027be3',
+        theme_color: '#212121',
         icons: [
           {
             src: 'icons/icon-128x128.png',
